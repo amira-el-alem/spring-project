@@ -1,4 +1,8 @@
-FROM openjdk:8-jdk-alpine
-EXPOSE 8082
-ADD target/timesheet-devops-1.0.jar timesheet-devops-1.0.jar
-ENTRYPOINT ["java","-jar","/timesheet-devops-1.0.jar"]
+FROM openjdk:17-jdk-alpine
+
+WORKDIR /app
+
+Copy target/spring-boot-one-to-many-1.0.0.jar /app/
+
+CMD["java", "jar", "spring-boot-one-to-many-1.0.0.jar"]
+
